@@ -1,9 +1,11 @@
-package com.senaibank.repository;
+package com.senaibank.bank.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.senaibank.classes.Cliente;
+import com.senaibank.bank.classes.Cliente;
+
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
 
+    
 }

@@ -1,4 +1,4 @@
-package com.senaibank.classes;
+package com.senaibank.bank.classes;
 
 import java.time.LocalDate;
 

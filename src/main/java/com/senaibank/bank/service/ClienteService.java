@@ -1,9 +1,12 @@
-package com.senaibank.service;
+package com.senaibank.bank.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.senaibank.classes.Cliente;
+import com.senaibank.bank.classes.Cliente;
+import com.senaibank.bank.repository.ClienteRepository;
+
+import java.util.List;
 
 @Service
 public class ClienteService {
@@ -15,8 +18,8 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public Cliente getbyId(Long id) {
-        return clienteRepository.findbyId(id)
+    public Cliente getById(Long id) {
+        return clienteRepository.findById(id)
                 .orElse(null);
     }
 
@@ -26,11 +29,9 @@ public class ClienteService {
 
     public Cliente update(Long id, Cliente cliente) {
         Cliente clienteExistente = getById(id);
-    }
-    
-    if(clienteExistente==null){  
+        if (clienteExistente == null) {
             return null;
-     }
+        }
 
         clienteExistente.setNome(cliente.getNome());
         clienteExistente.setCpf(cliente.getCpf());
