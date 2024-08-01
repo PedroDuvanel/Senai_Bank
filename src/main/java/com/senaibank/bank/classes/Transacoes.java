@@ -11,24 +11,25 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-
-
 @Data
 @EqualsAndHashCode(of = "id")
 @Entity
-@Table(name = "conta")
-public class Conta {
+@Table(name = "transacoes")
+public class Transacoes {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long numeroConta;
+    private Long numeroTransacao;
 
     @OneToOne
     @JoinColumn(nullable = false)
-    private Cliente titular;
+    private Cliente remetente;
+
+    @OneToOne
+    @JoinColumn(nullable = false)
+    private Cliente destinatario;
 
     @Column(nullable = false)
-    private String saldo;
+    private String saldoEnviado;
 
-    
 
 }
